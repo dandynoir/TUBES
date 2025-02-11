@@ -23,8 +23,8 @@ st.markdown("<br>", unsafe_allow_html=True)
 with st.sidebar:
     selected = option_menu(
         menu_title="Dashboard",
-        options=["Home", "Menu 1", "Menu 2", "Menu 3", "Menu 4", "Menu 5", "Menu 6"],
-        icons=["house", "eye", "eye", "eye", "eye", "eye", "eye"],
+        options=["Home", "Menu 1", "Menu 2", "Menu 3", "Menu 4", "Menu 5", "Menu 6", "Menu 7"],
+        icons=["house", "eye", "eye", "eye", "eye", "eye", "eye", "eye"],
         menu_icon="cast",
         default_index=0
     )
@@ -258,3 +258,30 @@ elif selected == "Menu 6": # Penyewaan Sepeda Berdasarkan Cuaca
         "Dari data yang ditampilkan, kita dapat melihat bahwa penyewaan sepeda lebih banyak terjadi "
         "pada cuaca yang baik dibandingkan cuaca buruk, dan terdapat data yang tidak diketahui mengenai cuaca."
     )
+
+elif selected == "Menu 7":  # Menu untuk unggah file CSV
+    
+    st.subheader('Upload File CSV')
+
+    # Menggunakan file uploader untuk mengunggah file CSV
+    file = st.file_uploader('Unggah File CSV', type='csv')
+
+    if file is not None:
+        # Membaca file CSV yang diunggah
+        data = pd.read_csv(file)
+        
+        # Menampilkan dataframe
+        st.write('Isi Dari Data Frame Adalah:')
+        st.dataframe(data)
+        
+        # Membuat visualisasi menggunakan Altair (contoh: bar chart)
+        if 'x_column' in data.columns and 'y_column' in data.columns:
+            chart = alt.Chart(data).mark_bar().encode(
+                x='x_column:N',
+                y='y_column:Q'
+            ).properties(
+                title='Visualisasi Data Berdasarkan File CSV'
+            )
+            st.altair_chart(chart, use_container_width=True)
+        else:
+            st.write("Kolom yang dibutuhkan tidak ditemukan dalam data.")

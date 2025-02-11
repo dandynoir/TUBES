@@ -86,13 +86,13 @@ elif selected == "Menu 1": # Penggunaan Sepeda Sepanjang Tahun 2011
     # Membuat kolom 'month_year' dengan format 'Bulan Tahun'
     data_day['month_year'] = data_day['dteday'].dt.strftime('%B %Y')
     data_day['year'] = data_day['yr_month'].str[:4]
+    data_day['year_month'] = data_day['yr_month'].apply(lambda x: f"{x[:4]} {x[4:]}")
 
     # Membuat grafik menggunakan Matplotlib
     chart = alt.Chart(data_day).mark_line().encode(
-    x=alt.X('yr_month:N', title='Tahun dan Bulan', axis=alt.Axis(labelAngle=90)),
+    x=alt.X('year_month:N', title='Tahun dan Bulan', axis=alt.Axis(labelAngle=90)),
     y=alt.Y('cnt:Q', title='Jumlah Penggunaan Sepeda'),
-    color=alt.Color('year:N', title='Tahun'),  # Menambahkan pemetaan warna berdasarkan tahun
-    tooltip=['yr_month', 'cnt', 'year']
+    tooltip=['year_month', 'cnt']
     ).properties(
     title='Penggunaan Sepeda Sepanjang Tahun 2011 hingga 2012',
     width=800,

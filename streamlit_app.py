@@ -89,19 +89,19 @@ elif selected == "Menu 1": # Penggunaan Sepeda Sepanjang Tahun 2011
     data_day = data_day.sort_values(by='yr_month')
 
     # Pastikan label sumbu X memiliki urutan yang benar
-    ordered_months = [
-        '2011 Jan', '2011 Feb', '2011 Mar', '2011 Apr', '2011 Mei', '2011 Jun', 
-        '2011 Jul', '2011 Agu', '2011 Sep', '2011 Okt', '2011 Nov', '2011 Des',
-        '2012 Jan', '2012 Feb', '2012 Mar', '2012 Apr', '2012 Mei', '2012 Jun',
-        '2012 Jul', '2012 Agu', '2012 Sep', '2012 Okt', '2012 Nov', '2012 Des'
-    ]
+    #ordered_months = [
+    #    '2011 Jan', '2011 Feb', '2011 Mar', '2011 Apr', '2011 Mei', '2011 Jun', 
+    #    '2011 Jul', '2011 Agu', '2011 Sep', '2011 Okt', '2011 Nov', '2011 Des',
+    #    '2012 Jan', '2012 Feb', '2012 Mar', '2012 Apr', '2012 Mei', '2012 Jun',
+    #    '2012 Jul', '2012 Agu', '2012 Sep', '2012 Okt', '2012 Nov', '2012 Des'
+    #]
     
     # Membuat grafik menggunakan Altair
     chart = alt.Chart(data_day).mark_line().encode(
-    x=alt.X('year_month_label:N', 
+    x=alt.X('yr_month:T', 
             title='Tahun dan Bulan', 
             sort=ordered_months,  # Pastikan urutan bulan benar
-            axis=alt.Axis(labelAngle=90)),
+            axis=alt.Axis(format='%Y %b', labelAngle=90)),
     y=alt.Y('cnt:Q', title='Jumlah Penggunaan Sepeda'),
     tooltip=['year_month_label', 'cnt']
     ).properties(

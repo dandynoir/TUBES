@@ -70,7 +70,7 @@ if selected == "🏠 Home":
     st.markdown("<p style='font-size: 20px;'>- Menu 3 Dibuat Oleh Sendi Dwi Putra", unsafe_allow_html=True)
     st.write('Penggunaan Sepeda Berdasarkan jam')
     st.markdown("<p style='font-size: 20px;'>- Menu 4 Dibuat Oleh Dandy Muhamad Fadillah", unsafe_allow_html=True)
-    st.write('Penggunaan Sepeda Berdasarkan Waktu Pagi, Siang dan Sore')
+    st.write('Penggunaan Sepeda Berdasarkan Waktu Pagi, Siang, Sore, dan Malam')
     st.markdown("<p style='font-size: 20px;'>- Menu 5 Dibuat Oleh Irfan Putra Hendari", unsafe_allow_html=True)
     st.write('Penggunaan Sepeda Berdasarkan per Hari dalam Seminggu')
     st.markdown("<p style='font-size: 20px;'>- Menu 6 Dibuat Oleh Dinda Aprillianti", unsafe_allow_html=True)

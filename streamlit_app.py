@@ -118,7 +118,7 @@ elif selected == "Menu 1": # Penggunaan Sepeda Sepanjang Tahun 2011
 
     # Penjelasan untuk Penggunaan Sepeda sepanjang tahun 2011
     st.write("Penjelasan: Grafik ini menunjukkan jumlah penggunaan sepeda sepanjang tahun 2011 dan bulanannya. "
-            "Dari data yang ditampilkan, kita dapat melihat bahwa penggunaan sepeda paling tinggi pada bulan September dan Oktober tahun 2011.")
+            "Dari data yang ditampilkan, kita dapat melihat bahwa penggunaan sepeda paling tinggi pada bulan Maret tahun 2012.")
 
 elif selected == "Menu 2": # Penggunaan Sepeda Berdasarkan Jam
     

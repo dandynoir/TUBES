@@ -267,19 +267,19 @@ elif selected == "Menu 7":  # Menu untuk unggah file CSV
     file1 = st.file_uploader('Unggah File CSV', type='csv')
 
     # Menggunakan file uploader kedua untuk mengunggah file CSV kedua
-    file2 = st.file_uploader('Unggah File CSV Kedua', type='csv')
+    #file2 = st.file_uploader('Unggah File CSV Kedua', type='csv')
 
     if file1 is not None:
         # Membaca file CSV yang diunggah
-        data1 = pd.read_csv(file1)
+        data = pd.read_csv(accept_multiple_files=True, file)
         
         # Menampilkan dataframe
         st.write('Isi Dari Data Frame Adalah:')
         st.dataframe(data)
         
         # Membuat visualisasi menggunakan Altair (contoh: bar chart)
-        if 'x_column' in data1.columns and 'y_column' in data1.columns:
-            chart = alt.Chart(data1).mark_bar().encode(
+        if 'x_column' in data.columns and 'y_column' in data.columns:
+            chart = alt.Chart(data).mark_bar().encode(
                 x='x_column:N',
                 y='y_column:Q'
             ).properties(
@@ -290,19 +290,19 @@ elif selected == "Menu 7":  # Menu untuk unggah file CSV
             st.write("Kolom yang dibutuhkan tidak ditemukan dalam data.")
 
     # Jika file kedua diunggah
-    if file2 is not None:
-        data2 = pd.read_csv(file2)
-        st.write('Isi Dari Data Frame CSV Kedua Adalah:')
-        st.dataframe(data2)
+    #if file2 is not None:
+     #   data2 = pd.read_csv(file2)
+      #  st.write('Isi Dari Data Frame CSV Kedua Adalah:')
+       # st.dataframe(data2)
 
         # Visualisasi untuk file kedua
-        if 'x_column' in data2.columns and 'y_column' in data2.columns:
-            chart2 = alt.Chart(data2).mark_bar().encode(
-                x='x_column:N',
-                y='y_column:Q'
-            ).properties(
-                title='Visualisasi Data Berdasarkan File CSV Kedua'
-            )
-            st.altair_chart(chart2, use_container_width=True)
-        else:
-            st.write("Kolom yang dibutuhkan tidak ditemukan dalam file kedua.")
+        #if 'x_column' in data2.columns and 'y_column' in data2.columns:
+         #   chart2 = alt.Chart(data2).mark_bar().encode(
+          #      x='x_column:N',
+           #     y='y_column:Q'
+            #).properties(
+             #   title='Visualisasi Data Berdasarkan File CSV Kedua'
+            #)
+            #st.altair_chart(chart2, use_container_width=True)
+        #else:
+         #   st.write("Kolom yang dibutuhkan tidak ditemukan dalam file kedua.")

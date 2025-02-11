@@ -76,7 +76,24 @@ if selected == "Home":
     st.markdown("<p style='font-size: 20px;'>- Menu 6 Dibuat Oleh Egy Audiawan Riyadi", unsafe_allow_html=True)
     st.write('Penyewaan Sepeda Berdasarkan Cuaca') 
 
-elif selected == "Menu 1": # Penggunaan Sepeda Sepanjang Tahun 2011
+elif selected == "Menu 1":  # Menu untuk menampilkan dataset
+    
+    st.subheader('Menampilkan Dataset')
+
+    # Membaca dataset yang sudah ada
+    data_day = pd.read_csv('day.csv')
+    data_hour = pd.read_csv('hour.csv')
+
+    # Menampilkan dataset 'day.csv'
+    st.write("Dataset dari 'day.csv':")
+    st.dataframe(data_day)  # Menampilkan dataframe data_day
+
+    # Menampilkan dataset 'hour.csv'
+    st.write("Dataset dari 'hour.csv':")
+    st.dataframe(data_hour)  # Menampilkan dataframe data_hour
+    
+
+elif selected == "Menu 2": # Penggunaan Sepeda Sepanjang Tahun 2011
 
     st.subheader('Penggunaan Sepeda Sepanjang Tahun 2011')
 
@@ -120,7 +137,7 @@ elif selected == "Menu 1": # Penggunaan Sepeda Sepanjang Tahun 2011
     st.write("Penjelasan: Grafik ini menunjukkan jumlah penggunaan sepeda sepanjang tahun 2011 dan bulanannya. "
             "Dari data yang ditampilkan, kita dapat melihat bahwa penggunaan sepeda paling tinggi pada bulan Maret tahun 2012.")
 
-elif selected == "Menu 2": # Penggunaan Sepeda Berdasarkan Jam
+elif selected == "Menu 3": # Penggunaan Sepeda Berdasarkan Jam
     
     st.subheader('Penggunaan Sepeda Berdasarkan Jam')
     data_perjam = data_hour.groupby('hr')['cnt'].mean().reset_index()
@@ -132,7 +149,7 @@ elif selected == "Menu 2": # Penggunaan Sepeda Berdasarkan Jam
     st.write("penjelasan: Grafik ini menunjukkan rata-rata jumlah penggunaan sepeda berdasarkan jam. "
             "Dari data yang ditampilkan, kita dapat melihat bahwa penggunaan sepeda paling tinggi pada jam 5 sore.")
 
-elif selected == "Menu 3":  # Pengguna Sepeda Berdasarkan Waktu Pagi, Siang, Sore
+elif selected == "Menu 4":  # Pengguna Sepeda Berdasarkan Waktu Pagi, Siang, Sore
     
     st.subheader('Pengguna Sepeda Berdasarkan Waktu Pagi, Siang, Sore')
     # Menambahkan kategori waktu: Pagi, Siang, Sore, Malam
@@ -169,7 +186,7 @@ elif selected == "Menu 3":  # Pengguna Sepeda Berdasarkan Waktu Pagi, Siang, Sor
     st.write("Penjelasan: Grafik ini menunjukan jumlah penggunaan sepeda berdasarkan waktu pagi, siang, sore, dan malam. "
             "Dari data yang ditampilkan, kita dapat melihat bahwa penggunaan sepeda paling tinggi pada Sore dan Malam.")
 
-elif selected == "Menu 4": # Penggunaan Sepeda Per Hari dalam Seminggu
+elif selected == "Menu 5": # Penggunaan Sepeda Per Hari dalam Seminggu
     
     st.subheader('Penggunaan Sepeda Per Hari dalam Seminggu')
     # Menambahkan kolom untuk hari dalam seminggu
@@ -199,7 +216,7 @@ elif selected == "Menu 4": # Penggunaan Sepeda Per Hari dalam Seminggu
     st.write("Penjelasan: Grafik ini menunjukkan jumlah penggunaan sepeda per hari dalam seminggu. "
             "Dari data yang ditampilkan, kita dapat melihat bahwa penggunaan sepeda paling tinggi pada hari Jumat dan Sabtu")
 
-elif selected == "Menu 5": # Penyewaan Sepeda Berdasarkan Musim
+elif selected == "Menu 6": # Penyewaan Sepeda Berdasarkan Musim
 
     st.subheader('Penyewaan Sepeda Berdasarkan Musim')
     
@@ -227,7 +244,7 @@ elif selected == "Menu 5": # Penyewaan Sepeda Berdasarkan Musim
     st.write("Penjelasan: Grafik ini menunjukkan jumlah penyewaan sepeda berdasarkan musim. "
             "Dari data yang ditampilkan, kita dapat melihat tren penggunaan sepeda di setiap musim paling tinggi pada Musim Gugur.")
 
-elif selected == "Menu 6": # Penyewaan Sepeda Berdasarkan Cuaca
+elif selected == "Menu 7": # Penyewaan Sepeda Berdasarkan Cuaca
 
     st.subheader('Penyewaan Sepeda Berdasarkan Cuaca')
 
@@ -258,19 +275,3 @@ elif selected == "Menu 6": # Penyewaan Sepeda Berdasarkan Cuaca
         "Dari data yang ditampilkan, kita dapat melihat bahwa penyewaan sepeda lebih banyak terjadi "
         "pada cuaca yang baik dibandingkan cuaca buruk, dan terdapat data yang tidak diketahui mengenai cuaca."
     )
-
-elif selected == "Menu 7":  # Menu untuk menampilkan dataset
-    
-    st.subheader('Menampilkan Dataset')
-
-    # Membaca dataset yang sudah ada
-    data_day = pd.read_csv('day.csv')
-    data_hour = pd.read_csv('hour.csv')
-
-    # Menampilkan dataset 'day.csv'
-    st.write("Dataset dari 'day.csv':")
-    st.dataframe(data_day)  # Menampilkan dataframe data_day
-
-    # Menampilkan dataset 'hour.csv'
-    st.write("Dataset dari 'hour.csv':")
-    st.dataframe(data_hour)  # Menampilkan dataframe data_hour

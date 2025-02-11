@@ -88,7 +88,7 @@ df_day["dteday"] = pd.to_datetime(df_day["dteday"])
 data_day['yr_month'] = data_day['dteday'].dt.strftime('%Y-%m')
 
 # Tambahkan kolom baru untuk label tahun dan bulan dalam bahasa Indonesia
-df_day["yr_month_label"] = df_day["dteday"].dt.strftime("%Y %B")  # Contoh: "2011 Januari"
+df_day["year_month_label"] = df_day["dteday"].dt.strftime("%Y %B")  # Contoh: "2011 Januari"
 
 # Urutkan data berdasarkan 'yr_month' agar sumbu X berurutan
 data_day = data_day.sort_values(by='yr_month')
@@ -103,7 +103,7 @@ ordered_months = [
 
     # Membuat grafik dengan Altair
     chart = alt.Chart(data_day).mark_line().encode(
-        x=alt.X('yr_month:N', 
+        x=alt.X('year_month_label:N', 
                 title='Tahun dan Bulan', 
                 sort=ordered_months,  # Pastikan urutan bulan benar
                 axis=alt.Axis(labelAngle=90)),  # Rotasi label sumbu X agar terbaca jelas

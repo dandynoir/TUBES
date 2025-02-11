@@ -76,7 +76,7 @@ if selected == "Home":
     st.markdown("<p style='font-size: 20px;'>- Menu 6 Dibuat Oleh Egy Audiawan Riyadi", unsafe_allow_html=True)
     st.write('Penyewaan Sepeda Berdasarkan Cuaca') 
 
-elif selected == "📊 Menu 1": # Penggunaan Sepeda Sepanjang Tahun 2011
+elif selected == "Menu 1": # Penggunaan Sepeda Sepanjang Tahun 2011
 
     st.subheader('Penggunaan Sepeda Sepanjang Tahun 2011')
 
@@ -263,11 +263,11 @@ elif selected == "Menu 7":  # Menu untuk unggah file CSV
     
     st.subheader('Upload File CSV')
 
-    # Menggunakan file uploader untuk mengunggah file CSV
+    # Menggunakan file uploader untuk mengunggah beberapa file CSV
     uploaded_files = st.file_uploader("Upload file CSV", accept_multiple_files=True, type=['csv'])
 
     if uploaded_files:
         for file in uploaded_files:
             df = pd.read_csv(file)  # Membaca file CSV
             st.write(f"Data dari {file.name}:")
-            st.dataframe(df)  # Menampilkan dataframe
+            st.dataframe(df)  # Menampilkan dataframe

@@ -198,7 +198,7 @@ elif selected == "Menu 5": # Penyewaan Sepeda Berdasarkan Musim
     chart = alt.Chart(data_musim).mark_bar().encode(
         x=alt.X('season_label:N', title='Musim', axis=alt.Axis(labelAngle=0)),
         y=alt.Y('cnt:Q', title='Jumlah Penyewaan Sepeda'),
-        color=alt.Color('season:N', scale=alt.Scale(domain=[1, 2, 3, 4], range=['#Brown','#ff7f0e', '#2ca02c', '#d62728']), legend=None)
+        color=alt.Color('season:N', scale=alt.Scale(domain=[1, 2, 3, 4], range=['#6c3c0c','#ff7f0e', '#2ca02c', '#d62728']), legend=None)
     ).properties(
         width=500,
         height=300,

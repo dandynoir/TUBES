@@ -103,7 +103,7 @@ ordered_months = [
 
     # Membuat grafik dengan Altair
     chart = alt.Chart(data_day).mark_line().encode(
-        x=alt.X('yr_month_:N', 
+        x=alt.X('yr_month:N', 
                 title='Tahun dan Bulan', 
                 sort=ordered_months,  # Pastikan urutan bulan benar
                 axis=alt.Axis(labelAngle=90)),  # Rotasi label sumbu X agar terbaca jelas

@@ -97,7 +97,7 @@ elif selected == "Menu 1":  # Menu untuk menampilkan dataset
 
 elif selected == "Menu 2": # Penggunaan Sepeda Sepanjang Tahun 2011
 
-    st.subheader('Penggunaan Sepeda Sepanjang Tahun 2011')
+    st.subheader('📊 Penggunaan Sepeda Sepanjang Tahun 2011')
 
     # Pastikan kolom tanggal dalam format datetime
     data_day["dteday"] = pd.to_datetime(data_day["dteday"])

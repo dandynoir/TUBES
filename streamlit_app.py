@@ -95,7 +95,7 @@ elif selected == "Menu 1":  # Menu untuk menampilkan dataset
     st.dataframe(data_hour)  # Menampilkan dataframe data_hour
     
 
-elif selected == "📊 Menu 2": # Penggunaan Sepeda Sepanjang Tahun 2011
+elif selected == "Menu 2": # Penggunaan Sepeda Sepanjang Tahun 2011
 
     st.subheader('📊 Penggunaan Sepeda Sepanjang Tahun 2011')
 

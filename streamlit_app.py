@@ -84,7 +84,7 @@ elif selected == "Menu 1": # Penggunaan Sepeda Sepanjang Tahun 2011
     data_day['dteday'] = pd.to_datetime(data_day['dteday'])
 
     # Membuat kolom 'month_year' dengan format 'Bulan Tahun'
-    data_day['month_year'] = data_day['dteday'].dt.strftime('%B %Y')
+    data_day['yr_month'] = data_day['dteday'].dt.strftime('%B %Y')
     data_day['year'] = data_day['yr_month'].str[:4]
     data_day['year_month'] = data_day['yr_month'].apply(lambda x: f"{x[:4]} {x[4:]}")
 

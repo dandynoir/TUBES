@@ -63,7 +63,7 @@ if selected == "🏠 Home":
     st.markdown("<p style='font-size: 20px;'>- 10123023 Dinda Aprillianti</p>", unsafe_allow_html=True)
     st.markdown("<p style='font-size: 20px;'>- 10123026 Egy Audiawan Riyadi</p>", unsafe_allow_html=True)
     st.markdown("<h3>Penjelasan Menu :</h3>", unsafe_allow_html=True)
-    st.markdown("<h5 style='font-size: 20px;'>- Menu 1 Dibuat oleh Kami</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='font-size: 20px;'>- Menu 1 Dibuat Oleh Kami</h5>", unsafe_allow_html=True)
     st.write('Menampilkan Data Frame')
     st.markdown("<h5 style='font-size: 20px;'>- Menu 2 Dibuat Oleh Hadi Rabani</h5>", unsafe_allow_html=True)
     st.write('Penggunaan Sepeda Sepanjang Tahun 2011-2012')

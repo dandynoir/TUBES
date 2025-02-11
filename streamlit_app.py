@@ -220,7 +220,7 @@ elif selected == "Menu 5": # Penggunaan Sepeda Per Hari dalam Seminggu
 
 elif selected == "Menu 6": # Penyewaan Sepeda Berdasarkan Musim
 
-    st.subheader('Penyewaan Sepeda Berdasarkan Musim')
+    st.subheader('🌞 Penyewaan Sepeda Berdasarkan Musim')
     
     # Mengelompokkan data berdasarkan musim dan jumlah penyewaan sepeda
     data_musim = data_day.groupby('season')['cnt'].sum().reset_index()

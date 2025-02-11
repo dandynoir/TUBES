@@ -151,7 +151,7 @@ elif selected == "Menu 3":  # Pengguna Sepeda Berdasarkan Waktu Pagi, Siang, Sor
 
     # Penjelasan untuk Penggunaan Sepeda berdasarkan waktu Pagi, Siang, Sore
     st.write("Penjelasan: Grafik ini menunjukan jumlah penggunaan sepeda berdasarkan waktu pagi, siang, sore, dan malam. "
-            "Dari data yang ditampilkan, kita dapat melihat bahwa penggunaan sepeda paling tinggi pada Siang.")
+            "Dari data yang ditampilkan, kita dapat melihat bahwa penggunaan sepeda paling tinggi pada Sore dan Malam.")
 
 elif selected == "Menu 4": # Penggunaan Sepeda Per Hari dalam Seminggu
     
@@ -189,16 +189,16 @@ elif selected == "Menu 5": # Penyewaan Sepeda Berdasarkan Musim
     
     # Mengelompokkan data berdasarkan musim dan jumlah penyewaan sepeda
     data_musim = data_day.groupby('season')['cnt'].sum().reset_index()
-    data_musim = data_musim[data_musim['season'].isin([1, 2, 3])]
+    data_musim = data_musim[data_musim['season'].isin([1, 2, 3, 4])]
     # Label Musim
-    musim_labels = ['Musim Panas', 'Musim Gugur', 'Musim Dingin']
-    data_musim['season_label'] = pd.Categorical(data_musim['season'], categories=[1, 2, 3], ordered=True)
-    data_musim['season_label'] = data_musim['season_label'].map(dict(zip([1, 2, 3], musim_labels)))
+    musim_labels = ['Musim Semi', 'Musim Panas', 'Musim Gugur', 'Musim Dingin']
+    data_musim['season_label'] = pd.Categorical(data_musim['season'], categories=[1, 2, 3, 4], ordered=True)
+    data_musim['season_label'] = data_musim['season_label'].map(dict(zip([1, 2, 3, 4], musim_labels)))
 
     chart = alt.Chart(data_musim).mark_bar().encode(
         x=alt.X('season_label:N', title='Musim', axis=alt.Axis(labelAngle=0)),
         y=alt.Y('cnt:Q', title='Jumlah Penyewaan Sepeda'),
-        color=alt.Color('season:N', scale=alt.Scale(domain=[1, 2, 3], range=['#ff7f0e', '#2ca02c', '#d62728']), legend=None)
+        color=alt.Color('season:N', scale=alt.Scale(domain=[1, 2, 3, 4], range=['#Brown','#ff7f0e', '#2ca02c', '#d62728']), legend=None)
     ).properties(
         width=500,
         height=300,

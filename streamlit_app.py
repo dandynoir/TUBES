@@ -80,20 +80,19 @@ elif selected == "Menu 1": # Penggunaan Sepeda Sepanjang Tahun 2011
 
     st.subheader('Penggunaan Sepeda Sepanjang Tahun 2011')
 
-    # Mengonversi kolom 'dteday' menjadi datetime
     # Pastikan kolom tanggal dalam format datetime
-df_day["dteday"] = pd.to_datetime(df_day["dteday"])
-
-# Kolom untuk sorting (format 'YYYY-MM')
-data_day['yr_month'] = data_day['dteday'].dt.strftime('%Y-%m')
-
-# Tambahkan kolom baru untuk label tahun dan bulan dalam bahasa Indonesia
-df_day["year_month_label"] = df_day["dteday"].dt.strftime("%Y %B")  # Contoh: "2011 Januari"
-
-# Urutkan data berdasarkan 'yr_month' agar sumbu X berurutan
-data_day = data_day.sort_values(by='yr_month')
-
-# Pastikan label sumbu X memiliki urutan yang benar
+    df_day["dteday"] = pd.to_datetime(df_day["dteday"])
+    
+    # Kolom untuk sorting (format 'YYYY-MM')
+    data_day['yr_month'] = data_day['dteday'].dt.strftime('%Y-%m')
+    
+    # Tambahkan kolom baru untuk label tahun dan bulan dalam bahasa Indonesia
+    df_day["year_month_label"] = df_day["dteday"].dt.strftime("%Y %B")  # Contoh: "2011 Januari"
+    
+    # Urutkan data berdasarkan 'yr_month' agar sumbu X berurutan
+    data_day = data_day.sort_values(by='yr_month')
+    
+    # Pastikan label sumbu X memiliki urutan yang benar
     ordered_months = [
         '2011 Jan', '2011 Feb', '2011 Mar', '2011 Apr', '2011 Mei', '2011 Jun', 
         '2011 Jul', '2011 Agu', '2011 Sep', '2011 Okt', '2011 Nov', '2011 Des',

@@ -90,18 +90,17 @@ elif selected == "Menu 1": # Penggunaan Sepeda Sepanjang Tahun 2011
 
     # Membuat grafik menggunakan Matplotlib
     chart = alt.Chart(data_day).mark_line().encode(
-    x=alt.X('year_month:N', title='Tahun dan Bulan', axis=alt.Axis(labelAngle=90)),
-    y=alt.Y('cnt:Q', title='Jumlah Penggunaan Sepeda'),
-    tooltip=['year_month', 'cnt']
+        x=alt.X('yr_month:N', title='Tahun dan Bulan', axis=alt.Axis(labelAngle=90)),
+        y=alt.Y('cnt:Q', title='Jumlah Penggunaan Sepeda'),
+        tooltip=['yr_month', 'cnt']
     ).properties(
-    title='Penggunaan Sepeda Sepanjang Tahun 2011 hingga 2012',
-    width=800,
-    height=400
-    ).configure_axis(
-    labelAngle=90
+        title='Penggunaan Sepeda Sepanjang Tahun 2011 hingga 2012',
+        width=800,
+        height=400
     )
     # Menampilkan grafik
     st.altair_chart(chart, use_container_width=True)
+
 
     # Penjelasan untuk Penggunaan Sepeda sepanjang tahun 2011
     st.write("Penjelasan: Grafik ini menunjukkan jumlah penggunaan sepeda sepanjang tahun 2011 dan bulanannya. "

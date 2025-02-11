@@ -84,21 +84,38 @@ elif selected == "Menu 1": # Penggunaan Sepeda Sepanjang Tahun 2011
     # Pastikan kolom tanggal dalam format datetime
 df_day["dteday"] = pd.to_datetime(df_day["dteday"])
 
+# Kolom untuk sorting (format 'YYYY-MM')
+data_day['yr_month'] = data_day['dteday'].dt.strftime('%Y-%m')
+
 # Tambahkan kolom baru untuk label tahun dan bulan dalam bahasa Indonesia
-df_day["tahun_bulan"] = df_day["dteday"].dt.strftime("%Y %B")  # Contoh: "2011 Januari"
+df_day["yr_month_label"] = df_day["dteday"].dt.strftime("%Y %B")  # Contoh: "2011 Januari"
 
-# Buat chart dengan label Tahun-Bulan
-chart = alt.Chart(df_day).mark_line().encode(
-    x=alt.X("tahun_bulan:N", title="Waktu", sort=list(df_day["tahun_bulan"].unique())),
-    y=alt.Y("cnt:Q", title="Jumlah Penyewa Sepeda"),
-    tooltip=[alt.Tooltip("tahun_bulan:N", title="Bulan"), "cnt:Q"]
+# Urutkan data berdasarkan 'yr_month' agar sumbu X berurutan
+data_day = data_day.sort_values(by='yr_month')
+
+# Pastikan label sumbu X memiliki urutan yang benar
+ordered_months = [
+    '2011 Jan', '2011 Feb', '2011 Mar', '2011 Apr', '2011 Mei', '2011 Jun', 
+    '2011 Jul', '2011 Agu', '2011 Sep', '2011 Okt', '2011 Nov', '2011 Des',
+    '2012 Jan', '2012 Feb', '2012 Mar', '2012 Apr', '2012 Mei', '2012 Jun',
+    '2012 Jul', '2012 Agu', '2012 Sep', '2012 Okt', '2012 Nov', '2012 Des'
+]
+
+# Membuat grafik dengan Altair
+chart = alt.Chart(data_day).mark_line().encode(
+    x=alt.X('year_month_label:N', 
+            title='Tahun dan Bulan', 
+            sort=ordered_months,  # Pastikan urutan bulan benar
+            axis=alt.Axis(labelAngle=90)),  # Rotasi label sumbu X agar terbaca jelas
+    y=alt.Y('cnt:Q', title='Jumlah Penggunaan Sepeda'),
+    tooltip=['year_month_label', 'cnt']
 ).properties(
+    title='Penggunaan Sepeda Sepanjang Tahun 2011 hingga 2012',
     width=800,
-    height=400,
-    title="Tren Jumlah Penyewa Sepeda Per Bulan"
+    height=400
 )
-
-chart.show()
+# Menampilkan grafik di Streamlit
+st.altair_chart(chart, use_container_width=True)
 
     # Penjelasan untuk Penggunaan Sepeda sepanjang tahun 2011
     st.write("Penjelasan: Grafik ini menunjukkan jumlah penggunaan sepeda sepanjang tahun 2011 dan bulanannya. "

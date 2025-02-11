@@ -259,15 +259,18 @@ elif selected == "Menu 6": # Penyewaan Sepeda Berdasarkan Cuaca
         "pada cuaca yang baik dibandingkan cuaca buruk, dan terdapat data yang tidak diketahui mengenai cuaca."
     )
 
-elif selected == "Menu 7":  # Menu untuk unggah file CSV
+elif selected == "Menu 7":  # Menu untuk menampilkan dataset
     
-    st.subheader('Upload File CSV')
+    st.subheader('Menampilkan Dataset')
 
-    # Menggunakan file uploader untuk mengunggah beberapa file CSV
-    uploaded_files = st.file_uploader("Upload file CSV", accept_multiple_files=True, type=['csv'])
+    # Membaca dataset yang sudah ada
+    data_day = pd.read_csv('day.csv')
+    data_hour = pd.read_csv('hour.csv')
 
-    if uploaded_files:
-        for file in uploaded_files:
-            df = pd.read_csv(file)  # Membaca file CSV
-            st.write(f"Data dari {file.name}:")
-            st.dataframe(df)  # Menampilkan dataframe
+    # Menampilkan dataset 'day.csv'
+    st.write("Dataset dari 'day.csv':")
+    st.dataframe(data_day)  # Menampilkan dataframe data_day
+
+    # Menampilkan dataset 'hour.csv'
+    st.write("Dataset dari 'hour.csv':")
+    st.dataframe(data_hour)  # Menampilkan dataframe data_hour

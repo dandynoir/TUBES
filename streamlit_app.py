@@ -87,17 +87,19 @@ elif selected == "Menu 1": # Penggunaan Sepeda Sepanjang Tahun 2011
     data_day['month_year'] = data_day['dteday'].dt.strftime('%B %Y')
 
     # Membuat grafik menggunakan Matplotlib
-    fig, ax = plt.subplots(figsize=(10, 6))
-    sns.lineplot(x='yr_month', y='cnt', data=data_day, ax=ax)
-    ax.set_title('Penggunaan Sepeda Sepanjang Tahun 2011 hingga 1012')
-    ax.set_xlabel('Tahun dan Bulan')
-    ax.set_ylabel('Jumlah Penggunaan Sepeda')
-    ax.tick_params(axis='x', rotation=90)
-    ax.set_xticks([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23])
-    ax.set_xticklabels(['2011 Jan', '2011 Feb', '2011 Mar', '2011 Apr', '2011 Mei', '2011 Jun', '2011 Jul', '2011 Agu', '2011 Sep', '2011 Okt', '2011 Nov', '2011 Des', '2012 Jan', '2012 Feb', '2012 Mar', '2012 Apr', '2012 Mei', '2012 Jun', '2012 Jul', '2012 Agu', '2012 Sep', '2012 Okt', '2012 Nov', '2012 Des'])
-
+    chart = alt.Chart(data_day).mark_line().encode(
+    x=alt.X('yr_month:N', title='Tahun dan Bulan', axis=alt.Axis(labelAngle=90)),
+    y=alt.Y('cnt:Q', title='Jumlah Penggunaan Sepeda'),
+    tooltip=['yr_month', 'cnt']
+    ).properties(
+    title='Penggunaan Sepeda Sepanjang Tahun 2011 hingga 2012',
+    width=800,
+    height=400
+    ).configure_axis(
+    labelAngle=90
+    )
     # Menampilkan grafik
-    st.pyplot(fig)
+    st.altair_chart(chart, use_container_width=True)
 
     # Penjelasan untuk Penggunaan Sepeda sepanjang tahun 2011
     st.write("Penjelasan: Grafik ini menunjukkan jumlah penggunaan sepeda sepanjang tahun 2011 dan bulanannya. "

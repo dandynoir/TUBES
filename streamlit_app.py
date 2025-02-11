@@ -53,7 +53,7 @@ w_malam = data_hour[(data_hour['hr'] >= 22) & (data_hour['hr'] < 0)]
 w_tengah_malam = data_hour[(data_hour['hr'] >= 0) & (data_hour['hr'] < 6)]
 
 if selected == "🏠 Home":
-    st.subheader(f"Halaman {selected}")
+    st.subheader(f"{selected}")
     st.title("Kelompok 6")
     st.markdown("<h3>Anggota Kelompok :</h3>", unsafe_allow_html=True)
     st.markdown("<p style='font-size: 20px;'>- 10123001 Hadi Rabani</p>", unsafe_allow_html=True)

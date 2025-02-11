@@ -1,1 +1,6 @@
 streamlit-option-menu
+pandas
+numpy
+matplotlib
+seaborn
+altair

@@ -12,7 +12,7 @@ st.sidebar.markdown(
     """
     <div style="display: flex; align-items: center;">
         <img src="https://bit.ly/4hZMzM7" width="50" style="margin-right: 10px;">
-        <h1 style="margin: 0;">KELOMPOK 6</h1>
+        <h1 style="margin: 0;">KELOMPOK 5</h1>
     </div>
     """, 
     unsafe_allow_html=True

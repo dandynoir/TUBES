@@ -80,7 +80,7 @@ if selected == "Home":
 
 elif selected == "Menu 1":  # Menu untuk menampilkan dataset
     
-    st.subheader('Menampilkan Dataset')
+    st.subheader('🔍 Menampilkan Dataset')
 
     # Membaca dataset yang sudah ada
     data_day = pd.read_csv('day.csv')
@@ -141,7 +141,7 @@ elif selected == "Menu 2": # Penggunaan Sepeda Sepanjang Tahun 2011
 
 elif selected == "Menu 3": # Penggunaan Sepeda Berdasarkan Jam
     
-    st.subheader('Penggunaan Sepeda Berdasarkan Jam')
+    st.subheader('📈 Penggunaan Sepeda Berdasarkan Jam')
     data_perjam = data_hour.groupby('hr')['cnt'].mean().reset_index()
 
     # Menampilkan Line Chart menggunakan Streamlit
@@ -153,7 +153,7 @@ elif selected == "Menu 3": # Penggunaan Sepeda Berdasarkan Jam
 
 elif selected == "Menu 4":  # Pengguna Sepeda Berdasarkan Waktu Pagi, Siang, Sore
     
-    st.subheader('Pengguna Sepeda Berdasarkan Waktu Pagi, Siang, Sore')
+    st.subheader('📊 Pengguna Sepeda Berdasarkan Waktu Pagi, Siang, Sore')
     # Menambahkan kategori waktu: Pagi, Siang, Sore, Malam
     def categorize_time(hour):
         if 5 <= hour < 10:
@@ -190,7 +190,7 @@ elif selected == "Menu 4":  # Pengguna Sepeda Berdasarkan Waktu Pagi, Siang, Sor
 
 elif selected == "Menu 5": # Penggunaan Sepeda Per Hari dalam Seminggu
     
-    st.subheader('Penggunaan Sepeda Per Hari dalam Seminggu')
+    st.subheader('📄 Penggunaan Sepeda Per Hari dalam Seminggu')
     # Menambahkan kolom untuk hari dalam seminggu
     data_day['day_of_week'] = pd.to_datetime(data_day['dteday']).dt.day_name()
 

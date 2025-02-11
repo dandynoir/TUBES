@@ -264,12 +264,12 @@ elif selected == "Menu 7":  # Menu untuk unggah file CSV
     st.subheader('Upload File CSV')
 
     # Menggunakan file uploader untuk mengunggah file CSV
-    file1 = st.file_uploader('Unggah File CSV', type='csv')
+    file = st.file_uploader('Unggah File CSV', type='csv')
 
     # Menggunakan file uploader kedua untuk mengunggah file CSV kedua
     #file2 = st.file_uploader('Unggah File CSV Kedua', type='csv')
 
-    if file1 is not None:
+    if file is not None:
         # Membaca file CSV yang diunggah
         data = pd.read_csv(accept_multiple_files=True, file)
         

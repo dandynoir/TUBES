@@ -248,7 +248,7 @@ elif selected == "Menu 6": # Penyewaan Sepeda Berdasarkan Musim
 
 elif selected == "Menu 7": # Penyewaan Sepeda Berdasarkan Cuaca
 
-    st.subheader('Penyewaan Sepeda Berdasarkan Cuaca')
+    st.subheader('🌧️ Penyewaan Sepeda Berdasarkan Cuaca')
 
     # Mapping Kondisi Cuaca
     weather_mapping = {

@@ -95,7 +95,7 @@ elif selected == "Menu 1": # Penggunaan Sepeda Sepanjang Tahun 2011
             sort=list(data_day['year_month_label'].unique()),  # Pastikan urutan benar
             axis=alt.Axis(labelAngle=90)),
     y=alt.Y('cnt:Q', title='Jumlah Penggunaan Sepeda'),
-    tooltip=['year_month_label', 'cnt']
+    tooltip=['yr_month', 'cnt']
     ).properties(
         title='Penggunaan Sepeda Sepanjang Tahun 2011 hingga 2012',
         width=800,

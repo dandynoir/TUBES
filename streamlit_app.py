@@ -101,21 +101,21 @@ ordered_months = [
     '2012 Jul', '2012 Agu', '2012 Sep', '2012 Okt', '2012 Nov', '2012 Des'
 ]
 
-# Membuat grafik dengan Altair
-chart = alt.Chart(data_day).mark_line().encode(
-    x=alt.X('yr_month_:N', 
-            title='Tahun dan Bulan', 
-            sort=ordered_months,  # Pastikan urutan bulan benar
-            axis=alt.Axis(labelAngle=90)),  # Rotasi label sumbu X agar terbaca jelas
-    y=alt.Y('cnt:Q', title='Jumlah Penggunaan Sepeda'),
-    tooltip=['year_month_label', 'cnt']
-).properties(
-    title='Penggunaan Sepeda Sepanjang Tahun 2011 hingga 2012',
-    width=800,
-    height=400
-)
-# Menampilkan grafik di Streamlit
-st.altair_chart(chart, use_container_width=True)
+    # Membuat grafik dengan Altair
+    chart = alt.Chart(data_day).mark_line().encode(
+        x=alt.X('yr_month_:N', 
+                title='Tahun dan Bulan', 
+                sort=ordered_months,  # Pastikan urutan bulan benar
+                axis=alt.Axis(labelAngle=90)),  # Rotasi label sumbu X agar terbaca jelas
+        y=alt.Y('cnt:Q', title='Jumlah Penggunaan Sepeda'),
+        tooltip=['year_month_label', 'cnt']
+    ).properties(
+        title='Penggunaan Sepeda Sepanjang Tahun 2011 hingga 2012',
+        width=800,
+        height=400
+    )
+    # Menampilkan grafik di Streamlit
+    st.altair_chart(chart, use_container_width=True)
 
     # Penjelasan untuk Penggunaan Sepeda sepanjang tahun 2011
     st.write("Penjelasan: Grafik ini menunjukkan jumlah penggunaan sepeda sepanjang tahun 2011 dan bulanannya. "

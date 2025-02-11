@@ -23,7 +23,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 with st.sidebar:
     selected = option_menu(
         menu_title="Dashboard",
-        options=["Home", "Menu 1", "Menu 2", "Menu 3", "Menu 4", "Menu 5", "Menu 6", "Menu 7"],
+        options=["🏠 Home", "📂 Menu 1", "📊 Menu 2", "⏰ Menu 3", "🌅 Menu 4", "📅 Menu 5", "🍂 Menu 6", "🌤️ Menu 7"],
         icons=["house", "eye", "eye", "eye", "eye", "eye", "eye", "eye"],
         menu_icon="cast",
         default_index=0
@@ -52,7 +52,7 @@ w_sore = data_hour[(data_hour['hr'] >= 18) & (data_hour['hr'] < 22)]
 w_malam = data_hour[(data_hour['hr'] >= 22) & (data_hour['hr'] < 0)]
 w_tengah_malam = data_hour[(data_hour['hr'] >= 0) & (data_hour['hr'] < 6)]
 
-if selected == "Home":
+if selected == "🏠 Home":
     st.subheader(f"Halaman {selected}")
     st.title("Kelompok 6")
     st.markdown("<h3>Anggota Kelompok :</h3>", unsafe_allow_html=True)
@@ -78,7 +78,7 @@ if selected == "Home":
     st.markdown("<p style='font-size: 20px;'>- Menu 7 Dibuat Oleh Egy Audiawan Riyadi", unsafe_allow_html=True)
     st.write('Penyewaan Sepeda Berdasarkan Cuaca') 
 
-elif selected == "Menu 1":  # Menu untuk menampilkan dataset
+elif selected == "📂 Menu 1":  # Menu untuk menampilkan dataset
     
     st.subheader('🔍 Menampilkan Dataset')
 
@@ -95,9 +95,9 @@ elif selected == "Menu 1":  # Menu untuk menampilkan dataset
     st.dataframe(data_hour)  # Menampilkan dataframe data_hour
     
 
-elif selected == "Menu 2": # Penggunaan Sepeda Sepanjang Tahun 2011
+elif selected == "📊 Menu 2": # Penggunaan Sepeda Sepanjang Tahun 2011 - 2012
 
-    st.subheader('📈 Penggunaan Sepeda Sepanjang Tahun 2011')
+    st.subheader('📈 Penggunaan Sepeda Sepanjang Tahun 2011-2012')
 
     # Pastikan kolom tanggal dalam format datetime
     data_day["dteday"] = pd.to_datetime(data_day["dteday"])
@@ -136,10 +136,10 @@ elif selected == "Menu 2": # Penggunaan Sepeda Sepanjang Tahun 2011
     st.altair_chart(chart, use_container_width=True)
 
     # Penjelasan untuk Penggunaan Sepeda sepanjang tahun 2011
-    st.write("Penjelasan: Grafik ini menunjukkan jumlah penggunaan sepeda sepanjang tahun 2011 dan bulanannya. "
+    st.write("Penjelasan: Grafik ini menunjukkan jumlah penggunaan sepeda sepanjang tahun 2011-2012 dan bulanannya. "
             "Dari data yang ditampilkan, kita dapat melihat bahwa penggunaan sepeda paling tinggi pada bulan Maret tahun 2012.")
 
-elif selected == "Menu 3": # Penggunaan Sepeda Berdasarkan Jam
+elif selected == "⏰ Menu 3": # Penggunaan Sepeda Berdasarkan Jam
     
     st.subheader('📈 Penggunaan Sepeda Berdasarkan Jam')
     data_perjam = data_hour.groupby('hr')['cnt'].mean().reset_index()
@@ -151,7 +151,7 @@ elif selected == "Menu 3": # Penggunaan Sepeda Berdasarkan Jam
     st.write("penjelasan: Grafik ini menunjukkan rata-rata jumlah penggunaan sepeda berdasarkan jam. "
             "Dari data yang ditampilkan, kita dapat melihat bahwa penggunaan sepeda paling tinggi pada jam 5 sore.")
 
-elif selected == "Menu 4":  # Pengguna Sepeda Berdasarkan Waktu Pagi, Siang, Sore
+elif selected == "🌅 Menu 4":  # Pengguna Sepeda Berdasarkan Waktu Pagi, Siang, Sore
     
     st.subheader('📊 Pengguna Sepeda Berdasarkan Waktu Pagi, Siang, Sore')
     # Menambahkan kategori waktu: Pagi, Siang, Sore, Malam
@@ -188,7 +188,7 @@ elif selected == "Menu 4":  # Pengguna Sepeda Berdasarkan Waktu Pagi, Siang, Sor
     st.write("Penjelasan: Grafik ini menunjukan jumlah penggunaan sepeda berdasarkan waktu pagi, siang, sore, dan malam. "
             "Dari data yang ditampilkan, kita dapat melihat bahwa penggunaan sepeda paling tinggi pada Sore dan Malam.")
 
-elif selected == "Menu 5": # Penggunaan Sepeda Per Hari dalam Seminggu
+elif selected == "📅 Menu 5": # Penggunaan Sepeda Per Hari dalam Seminggu
     
     st.subheader('📊 Penggunaan Sepeda Per Hari dalam Seminggu')
     # Menambahkan kolom untuk hari dalam seminggu
@@ -218,7 +218,7 @@ elif selected == "Menu 5": # Penggunaan Sepeda Per Hari dalam Seminggu
     st.write("Penjelasan: Grafik ini menunjukkan jumlah penggunaan sepeda per hari dalam seminggu. "
             "Dari data yang ditampilkan, kita dapat melihat bahwa penggunaan sepeda paling tinggi pada hari Jumat dan Sabtu")
 
-elif selected == "Menu 6": # Penyewaan Sepeda Berdasarkan Musim
+elif selected == "🍂 Menu 6": # Penyewaan Sepeda Berdasarkan Musim
 
     st.subheader('🌞 Penyewaan Sepeda Berdasarkan Musim')
     
@@ -246,7 +246,7 @@ elif selected == "Menu 6": # Penyewaan Sepeda Berdasarkan Musim
     st.write("Penjelasan: Grafik ini menunjukkan jumlah penyewaan sepeda berdasarkan musim. "
             "Dari data yang ditampilkan, kita dapat melihat tren penggunaan sepeda di setiap musim paling tinggi pada Musim Gugur.")
 
-elif selected == "Menu 7": # Penyewaan Sepeda Berdasarkan Cuaca
+elif selected == "🌤️ Menu 7": # Penyewaan Sepeda Berdasarkan Cuaca
 
     st.subheader('🌧 Penyewaan Sepeda Berdasarkan Cuaca')
 

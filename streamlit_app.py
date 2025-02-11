@@ -76,7 +76,7 @@ if selected == "Home":
     st.markdown("<p style='font-size: 20px;'>- Menu 6 Dibuat Oleh Egy Audiawan Riyadi", unsafe_allow_html=True)
     st.write('Penyewaan Sepeda Berdasarkan Cuaca') 
 
-elif selected == "Menu 1": # Penggunaan Sepeda Sepanjang Tahun 2011
+elif selected == "📊 Menu 1": # Penggunaan Sepeda Sepanjang Tahun 2011
 
     st.subheader('Penggunaan Sepeda Sepanjang Tahun 2011')
 
